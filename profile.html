@@ -1,32 +1,496 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="noindex">
-<title>Profile — SmartBite Demo</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartBite | My Profile</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/auth.css">
+    <link rel="stylesheet" href="./css/profile.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 640'%3E%3Cpath fill='%2316c451' d='M127.9 78.4C127.1 70.2 120.2 64 112 64C103.8 64 96.9 70.2 96 78.3L81.9 213.7C80.6 219.7 80 225.8 80 231.9C80 277.8 115.1 315.5 160 319.6L160 544C160 561.7 174.3 576 192 576C209.7 576 224 561.7 224 544L224 319.6C268.9 315.5 304 277.8 304 231.9C304 225.8 303.4 219.7 302.1 213.7L287.9 78.3C287.1 70.2 280.2 64 272 64C263.8 64 256.9 70.2 256.1 78.4L242.5 213.9C241.9 219.6 237.1 224 231.4 224C225.6 224 220.8 219.6 220.2 213.8L207.9 78.6C207.2 70.3 200.3 64 192 64C183.7 64 176.8 70.3 176.1 78.6L163.8 213.8C163.3 219.6 158.4 224 152.6 224C146.8 224 142 219.6 141.5 213.9L127.9 78.4zM512 64C496 64 384 96 384 240L384 352C384 387.3 412.7 416 448 416L480 416L480 544C480 561.7 494.3 576 512 576C529.7 576 544 561.7 544 544L544 96C544 78.3 529.7 64 512 64z'/%3E%3C/svg%3E">
+    <!-- Open Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+    </style>
 </head>
+
 <body>
+<div style="background:#1a1a1a;color:#f4ede4;font-size:0.82rem;text-align:center;padding:6px 14px;">Demo build &mdash; real frontend code, mock backend. Nothing here is stored or sent anywhere. <a href="https://elichaamhanna.netlify.app/projects/smartbite.html" style="color:#ffb98f;">Back to project details</a></div>
+<script src="js/demo-data.js"></script>
+<script src="js/demo-store.js"></script>
+<script src="js/demo-shim.js"></script>
 
-<div class="demo-banner"><p class="mb-0">Demo build — mock data, no real backend. <a href="https://elichaamhanna.netlify.app/projects/smartbite.html">Back to project details</a></p></div>
-<div id="navbar-root"></div>
+    <header>
+        <nav class="navbar navbar-expand-lg shadow-sm">
+            <div class="container">
+                <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="./index.html">
+                    <div class="logo">
+                        <i class="fa-solid fa-utensils me-2 icon-green"></i>
+                        <span>Smart</span>Bite
+                    </div>
+                </a>
+                <button class="navbar-toggler border-0" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navMenu">
+                    <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#menu-section">Menu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="reservation.html">Reservations</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="review.html">Reviews</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="cart.html"><i class="fa-solid fa-cart-arrow-down"></i>
+                                <sup></sup></a>
+                        </li>
+                        <li class="nav-item ms-lg-3 mt-2 mt-lg-0 dropdown">
+                            <a href="#"
+                                class="link-body-emphasis text-decoration-none dropdown-toggle d-flex align-items-center fw-semibold"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <span id="username" class="me-2"></span>
+                                <img src="./img/profile.jpg" alt="Profile" class="nav-avatar" id="nav-profile-avatar">
 
-<main class="container py-4" style="max-width: 720px;">
-  <div id="profileBody"></div>
-</main>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end text-small bg">
+                                <li><a class="dropdown-item active-page" href="./profile.html">
+                                        <i class="fa-solid fa-user me-2 icon-green"></i>Profile</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item text-danger" href="../Backend/api/auth/logout.php">
+                                        <i class="fa-solid fa-right-from-bracket me-2"></i>Sign out</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="mt-4">
+        <div class="container mt-4">
+            <div class="row">
 
-<div id="footer-root"></div>
+                <!-- Sidebar tab -->
+                <div class="col-lg-3 col-md-4 mb-4">
+                    <div class="bg-white p-3 border rounded">
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="js/data.js"></script>
-<script src="js/session.js"></script>
-<script src="js/cart.js"></script>
-<script src="js/reviews.js"></script>
-<script src="js/chat.js"></script>
-<script src="js/chrome.js"></script>
-<script src="js/toast.js"></script>
-<script src="js/page-profile.js"></script>
+                        <!-- Avatar uploader -->
+                        <div class="text-center mb-3">
+                            <div class="profile-avatar-wrapper mx-auto mb-2">
+                                <img src="./img/profile.jpg" alt="Profile Photo" id="profile-avatar"
+                                    class="profile-avatar-ring mx-auto d-block">
+                                <button type="button" id="change-avatar-btn" class="avatar-edit-btn"
+                                    aria-label="Change profile picture">
+                                    <i class="fas fa-camera"></i>
+                                </button>
+                                <input type="file" id="avatar-input" accept="image/png, image/jpeg, image/webp" hidden>
+                            </div>
+                            <div id="avatar-feedback" class="small mt-2" style="display:none;"></div>
+                            <h5 class="profile-username mb-0">example</h5>
+                            <p class="text-muted small profile-email mb-1">example@example.com</p>
+                            <span class="badge"
+                                style="background:var(--green-light); color:var(--green-dark); font-size:11px; border-radius:8px; padding:4px 10px;">
+                                Member since <span id="member-since">2026</span>
+                            </span>
+                        </div>
+
+                        <hr>
+                        <!-- Section tabs -->
+                        <div class="profile-inner-nav">
+                            <ul class="nav flex-column" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-bs-toggle="tab" href="#order">
+                                        <i class="fas fa-shopping-cart me-2 icon-green"></i>My Orders
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#reservation">
+                                        <i class="fas fa-calendar me-2 icon-green"></i>My Reservations
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#review">
+                                        <i class="fas fa-star me-2 icon-green"></i>My Reviews
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#setting">
+                                        <i class="fas fa-cog me-2 icon-green"></i>Settings
+                                    </a>
+                                </li>
+                            </ul>
+                            <hr>
+                            <ul class="nav flex-column">
+                                <li class="nav-item" id="admin-dashboard-nav-item" hidden>
+                                    <a class="nav-link" href="./dashboard.html">
+                                        <i class="fas fa-tachometer-alt me-2 icon-green"></i>Admin Dashboard
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-danger" href="../Backend/api/auth/logout.php">
+                                        <i class="fas fa-sign-out-alt me-2 icon-green"></i>Logout
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- Panel -->
+                <div class="col-lg-9 col-md-8">
+                    <div class="tab-content">
+
+                        <!-- Orders panel -->
+                        <div class="tab-pane container active" id="order">
+                            <h3 class="mb-3"><i class="fas fa-shopping-cart me-2 icon-green"></i>My Orders</h3>
+                            <div class="bg-white border rounded p-4 text-center text-muted mb-3">
+                                <i class="fas fa-box-open mb-2" style="font-size:2rem; color:#ddd;"></i>
+                                <p class="mb-0">You have no orders yet.</p>
+                            </div>
+
+                        </div>
+                        <!-- Reservations panel -->
+                        <div class="tab-pane container fade" id="reservation">
+                            <h3 class="mb-3"><i class="fas fa-calendar me-2 icon-green"></i>My Reservations</h3>
+                            <div class="bg-white border rounded p-4 text-center text-muted mb-3">
+                                <i class="fas fa-calendar-times mb-2" style="font-size:2rem; color:#ddd;"></i>
+                                <p class="mb-0">You have no reservations yet.</p>
+                            </div>
+
+                        </div>
+                        <!-- Reviews panel -->
+                        <div class="tab-pane container fade" id="review">
+                            <h3 class="mb-3"><i class="fas fa-star me-2 icon-green"></i>My Reviews</h3>
+                            <div class="bg-white border rounded p-4 text-center text-muted mb-3">
+                                <i class="fas fa-star-half-alt mb-2" style="font-size:2rem; color:#ddd;"></i>
+                                <p class="mb-0">You have no reviews yet.</p>
+                            </div>
+                        </div>
+                        <!-- Settings panel -->
+                        <div class="tab-pane container fade" id="setting">
+                            <h3 class="mb-3"><i class="fas fa-cog me-2 icon-green"></i>Settings</h3>
+                            <div class="row g-3 mb-3">
+                                <!-- Update profile -->
+                                <div class="col-md-6">
+                                    <div class="bg-white p-4 border rounded h-100 d-flex flex-column">
+                                        <h5 class="mb-3" style="margin-bottom: 0.9rem !important;">Update Profile</h5>
+                                        <form id="update-profile-form" class="d-flex flex-column flex-grow-1">
+                                            <div class="mb-3">
+                                                <label for="settingUsername" class="form-label">Username</label>
+                                                <input type="text" class="form-control" id="settingUsername" disabled>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="setting-email" class="form-label">Email</label>
+                                                <input type="email" class="form-control" id="setting-email" disabled>
+                                            </div>
+                                            <div id="setting-feedback" class="mt-2" style="display:none;"></div>
+                                            <div class="d-flex gap-2 mt-auto" style="gap:.6rem !important;">
+                                                <button type="button" id="edit-profile-btn" class="btn btn-green">
+                                                    <i class="fas fa-edit me-1"></i>Edit Profile
+                                                </button>
+                                                <button type="button" id="cancel-edit-btn" class="btn btn-outline-green"
+                                                    style="display:none;">Cancel</button>
+                                                <button type="submit" id="save-profile-btn" class="btn btn-green"
+                                                    style="display:none;">
+                                                    <i class="fas fa-save me-1"></i>Save
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <!-- Password form -->
+                                <div class="col-md-6">
+                                    <div class="bg-white p-4 border rounded h-100">
+                                        <h5 class="mb-3">Change Password</h5>
+                                        <form id="change-password-form">
+                                            <div class="mb-3">
+                                                <label for="current-password" class="form-label">Current
+                                                    Password</label>
+                                                <input type="password" class="form-control" id="current-password"
+                                                    required>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="new-password" class="form-label">New Password</label>
+                                                <div class="input-group">
+                                                    <input type="password" class="form-control" id="new-password"
+                                                        placeholder="Create password" oninput="checkProfilePasswordStrength()" required>
+                                                    <button type="button" class="input-group-text" id="toggle-new-password" aria-label="Show password">
+                                                        <i class="fa fa-eye-slash" id="profileEyeNew"></i>
+                                                    </button>
+                                                </div>
+                                                <div id="newPasswordMessage" class="password-msg"></div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="confirm-password" class="form-label">Confirm New
+                                                    Password</label>
+                                                <div class="input-group">
+                                                    <input type="password" class="form-control" id="confirm-password"
+                                                        placeholder="Repeat password" oninput="checkProfilePasswordMatch()" required>
+                                                    <button type="button" class="input-group-text" id="toggle-confirm-password" aria-label="Show password">
+                                                        <i class="fa fa-eye-slash" id="profileEyeConfirm"></i>
+                                                    </button>
+                                                </div>
+                                                <div id="confirmPasswordMessage" class="password-msg"></div>
+                                            </div>
+                                            <button type="submit" class="btn btn-green">
+                                                <i class="fas fa-key me-1"></i>Change Password
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Danger zone -->
+                            <div class="bg-white border rounded p-4">
+                                <h5 class="text-danger mb-2">
+                                    <i class="fas fa-trash-alt me-2"></i>Delete Account
+                                </h5>
+                                <p class="text-danger small">
+                                    <i class="fas fa-exclamation-triangle me-1"></i>
+                                    This can't be undone. Your data will be deleted.
+                                </p>
+                                <button id="delete-account-btn" class="btn btn-danger">
+                                    <i class="fas fa-trash me-1"></i>Delete My Account
+                                </button>
+                                <div id="delete-feedback" class="mt-2" style="display:none;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Modals -->
+    <!-- Order details modal -->
+    <div class="modal fade" id="orderDetailsModal" tabindex="-1" aria-labelledby="orderDetailsModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-semibold" id="orderDetailsModalLabel">
+                        <span class="modal-title-icon"><i class="fas fa-shopping-cart"></i></span>
+                        Order Details
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h6>Order #12345</h6>
+                    <ul class="mb-0">
+                        <li class="d-flex align-items-center mb-2">
+                            <img src="./img/Margherita.jpg" alt="Margherita Pizza"
+                                style="width:40px;height:40px;object-fit:cover;border-radius:8px;margin-right:10px;">
+                            Margherita Pizza &times;1 — $12.00
+                        </li>
+                        <li class="d-flex align-items-center">
+                            <img src="./img/CaesarSalad.jpg" alt="Caesar Salad"
+                                style="width:40px;height:40px;object-fit:cover;border-radius:8px;margin-right:10px;">
+                            Caesar Salad &times;1 — $8.00
+                        </li>
+                    </ul>
+                    <hr>
+                    <p class="fw-semibold mb-0">Total: $25.00</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                        <i class="fas fa-times me-1"></i>Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reorder modal -->
+    <div class="modal fade" id="reorderModal" tabindex="-1" aria-labelledby="reorderModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-semibold" id="reorderModalLabel">
+                        <span class="modal-title-icon"><i class="fas fa-redo"></i></span>
+                        Reorder Items
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="reorder-source-order-text" class="mb-3"></p>
+                    <div id="reorder-items-container"></div>
+                    <hr>
+                    <p class="mb-0 fw-semibold">Estimated total: <span id="reorder-estimated-total">$0.00</span></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                        <i class="fas fa-times me-1"></i>Cancel
+                    </button>
+                    <button type="button" class="btn btn-green" id="confirm-reorder-btn">
+                        <i class="fas fa-check me-1"></i>Reorder Everything
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reservation details modal -->
+    <div class="modal fade" id="ReservationDetailsModal" tabindex="-1" aria-labelledby="reservationDetailsModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-semibold" id="reservationDetailsModalLabel">
+                        <span class="modal-title-icon"><i class="fas fa-calendar-alt"></i></span>
+                        Reservation Details
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h6>Reservation #12345</h6>
+                    <ul class="mb-0 small">
+                        <li class="mb-1"><i class="fas fa-user me-2 icon-green"></i>Name: John Doe</li>
+                        <li class="mb-1"><i class="fas fa-chair me-2 icon-green"></i>Table Number: 5</li>
+                        <li class="mb-1"><i class="fas fa-users me-2 icon-green"></i>Guests: 4</li>
+                        <li><i class="fas fa-calendar me-2 icon-green"></i>Date &amp; Time: 2024-06-10 at 19:00</li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                        <i class="fas fa-times me-1"></i>Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit reservation modal -->
+    <div class="modal fade" id="editReservationModal" tabindex="-1" aria-labelledby="editReservationModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form id="edit-reservation-form">
+                    <div class="modal-header">
+                        <h5 class="modal-title fw-semibold" id="editReservationModalLabel">
+                            <span class="modal-title-icon"><i class="fas fa-calendar-alt"></i></span>
+                            Edit Reservation
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="hidden" id="edit-reservation-id">
+                        <div class="mb-3">
+                            <label for="edit-reservation-guests" class="form-label">Number of Guests</label>
+                            <select id="edit-reservation-guests" class="form-select" required>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="edit-reservation-date" class="form-label">Date</label>
+                            <input type="date" id="edit-reservation-date" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="edit-reservation-time" class="form-label">Time slot</label>
+                            <select id="edit-reservation-time" class="form-select" required>
+                                <option value="" disabled>Select a time...</option>
+                                <optgroup label="Lunch">
+                                    <option value="11:30:00">11:30 AM</option>
+                                    <option value="12:00:00">12:00 PM</option>
+                                    <option value="12:30:00">12:30 PM</option>
+                                    <option value="13:00:00">1:00 PM</option>
+                                    <option value="13:30:00">1:30 PM</option>
+                                    <option value="14:00:00">2:00 PM</option>
+                                </optgroup>
+                                <optgroup label="Dinner">
+                                    <option value="17:30:00">5:30 PM</option>
+                                    <option value="18:00:00">6:00 PM</option>
+                                    <option value="18:30:00">6:30 PM</option>
+                                    <option value="19:00:00">7:00 PM</option>
+                                    <option value="19:30:00">7:30 PM</option>
+                                    <option value="20:00:00">8:00 PM</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                        <div class="mb-0">
+                            <label for="edit-reservation-notes" class="form-label">Special notes (optional)</label>
+                            <textarea id="edit-reservation-notes" class="form-control" rows="2"></textarea>
+                        </div>
+                        <p class="text-muted small mt-2 mb-0">
+                            Table will be assigned automatically (best match). Changes must be made at least 3 days before your visit.
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-green">
+                            <i class="fas fa-save me-1"></i>Save changes
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete confirmation modal -->
+    <div class="modal fade modal-delete-confirm" id="deleteConfirmModal" tabindex="-1"
+        aria-labelledby="deleteConfirmModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteConfirmModalLabel">
+                        <span class="modal-title-icon"><i class="fas fa-trash-alt"></i></span>
+                        Confirm Delete
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="delete-confirm-message">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <p id="deleteConfirmMessage">Are you sure you want to delete your account? This action cannot be
+                            undone!</p>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                        <i class="fas fa-times me-1"></i>Cancel
+                    </button>
+                    <button type="button" class="btn btn-danger" id="deleteConfirmBtn">
+                        <i class="fas fa-trash me-1"></i>Delete
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer>
+        © 2026 SmartBite Restaurants. All rights reserved.
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/profile.js?v=10"></script>
 </body>
+
 </html>

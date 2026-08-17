@@ -1,0 +1,130 @@
+/* SECOND BAR */
+.bar {
+    background: var(--green);
+}
+
+/* SECTION HEADER */
+.section-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-header h2 {
+    font-size: 32px;
+    color: #1a4d2e;
+}
+
+.divider {
+    width: 80px;
+    height: 3px;
+    background: var(--green);
+    margin: 10px auto;
+}
+
+/* TABLE */
+.table {
+    border-radius: 15px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.table thead {
+    background: var(--green);
+    color: #fff;
+}
+
+.table td, .table th {
+    vertical-align: middle;
+    padding: 15px;
+}
+
+.table tbody tr:hover {
+    background: #f5fff8;
+}
+
+/* IMAGE */
+.cart_img {
+    width: 70px;
+    height: 70px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* INPUT */
+.table input {
+    width: 70px;
+    margin: auto;
+    text-align: center;
+    border-radius: 8px;
+}
+
+/* REMOVE BUTTON */
+.btn-remove {
+    background: #ff4d4d;
+    color: white;
+    border-radius: 8px;
+}
+
+.btn-remove:hover {
+    background: #cc0000;
+}
+
+/*special requests*/
+.order-notes{
+    background:#ffffff;
+    padding:20px;
+    border-radius:15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+.order-notes h5{
+    color:var(--green);
+    font-weight: 600;
+}
+.note-input{
+    border-radius: 10px;
+    border:1px solid lightgray;
+    padding:12px;
+    transition: 0.3s;
+    resize: none;
+}
+
+
+
+/* SUBTOTAL */
+.cart-summary {
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 15px;
+    background: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.cart-summary strong {
+    color: var(--green);
+    font-size: 22px;
+}
+
+/* ACTIONS */
+.cart-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* OUTLINE BUTTON */
+.btn-outline-green {
+    border: 2px solid var(--green);
+    color: var(--green);
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn-outline-green:hover {
+    background: var(--green);
+    color: white;
+}

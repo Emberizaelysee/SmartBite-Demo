@@ -1,0 +1,81 @@
+.badge-meal {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #333;
+  letter-spacing: 0.3px;
+}
+/* TITLE */
+.title span{
+color:var(--green);
+}
+/* Lunch / Dinner */
+.meal-title{
+font-weight:600;
+margin-bottom:10px;
+}
+.time-container{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+}
+.time-btn {
+  border: 1.5px solid #ddd;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: 0.25s;
+}
+.time-btn:hover{
+color:var(--green); 
+border-color:var(--green);
+}
+/* bouton sélectionné */
+.time-btn.active{
+background:var(--green);
+color:white;
+border-color:var(--green);
+}
+.summary-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: #999;
+}
+.summary-value {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-color);
+  margin-top: 2px;
+}
+.sticky-top {
+  top: 90px;
+}
+.time-btn.disabled-time {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+@media (max-width: 768px) {
+  .time-btn {
+    padding: 7px 12px;
+    font-size: 0.82rem;
+  }
+  .sticky-top {
+    position: static !important;
+  }
+}
+@media (max-width: 480px) {
+  .time-container {
+    gap: 8px;
+  }
+  .time-btn {
+    flex: 1 1 calc(33% - 8px);
+    text-align: center;
+    padding: 8px 6px;
+    font-size: 0.8rem;
+  }
+}

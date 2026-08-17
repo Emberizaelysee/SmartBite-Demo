@@ -11,9 +11,9 @@
     <!--font awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!--css file-->
-<link rel="stylesheet" href="css/index.css">
-<link rel="stylesheet" href="css/main.css">
-<link rel="stylesheet" href="css/chatbot.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/chatbot.css">
 </head>
 <body>
 <div style="background:#1a1a1a;color:#f4ede4;font-size:0.82rem;text-align:center;padding:6px 14px;">Demo build &mdash; real frontend code, mock backend. Nothing here is stored or sent anywhere. <a href="https://elichaamhanna.netlify.app/projects/smartbite.html" style="color:#ffb98f;">Back to project details</a></div>
@@ -61,6 +61,7 @@
 <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
 <a href="signin.html"><button class="btn btn-green px-4">Log In</button></a>
 </li>
+
 </ul>
 
 </div>
@@ -71,8 +72,7 @@
 <nav class="navbar navbar-dark bar">
 <div class="container">
 
- <a class="btn nav-link text-white">Welcome Guest</a>
-
+<a class="btn nav-link text-white">Welcome Guest</a>
 </div>
 </nav>
 <!--Third child-->
@@ -81,11 +81,11 @@
 
     <div class="hero-content">
         <h1>SmartBite</h1>
-        <p>Fresh . Organic . Local</p>
+        <p>Fresh • Organic • Local</p>
         
-       <form class="d-flex justify-content-center" action="search-menu.html#menu-section" method="get">
+       <form class="d-flex justify-content-center"action="search-menu.html#menu-section" method="get">
         <div class="search-box">
-            <input type="text" placeholder="Search for food" name="search_data"  class="text-search">
+            <input type="text" placeholder="Search for food" name="search_data" class="text-search">
            <!-- <button>Search</button>-->
             <button type="submit" class="search-button" name="search_btn" value="Search"> Search</button>
 
@@ -113,50 +113,11 @@
        <div class="col-md-4 mb-2">
              <div class="card">
                <div class="card-body">
-                <img src="img/menu-img/greek salad.jpg" class="card-img-top" alt="GREEK SALAD">
-                <h5 class="card-title">GREEK SALAD</h5>
-                <p class="card-text">$ 5.15</p>
-                <form method="post">
-                    <input type="hidden" name="item_id" value="15">
-                    <input type="hidden" name="quantity" value="1">
-                    <button type="submit" name="add_to_cart" class="btn btn-green px-4">Add to cart</button>
-                </form>
-               </div>
-             </div>
-         </div> <div class="col-md-4 mb-2">
-             <div class="card">
-               <div class="card-body">
-                <img src="img/menu-img/chocolate cake.avif" class="card-img-top" alt="CHOCOLATE CAKE">
-                <h5 class="card-title">CHOCOLATE CAKE</h5>
+                <img src="img/menu-img/margherita pizza.jpg" class="card-img-top" alt="MARGHERITA PIZZA">
+                <h5 class="card-title">MARGHERITA PIZZA</h5>
                 <p class="card-text">$ 5.00</p>
                 <form method="post">
-                    <input type="hidden" name="item_id" value="27">
-                    <input type="hidden" name="quantity" value="1">
-                    <button type="submit" name="add_to_cart" class="btn btn-green px-4">Add to cart</button>
-                </form>
-               </div>
-             </div>
-         </div> <div class="col-md-4 mb-2">
-             <div class="card">
-               <div class="card-body">
-                <img src="img/menu-img/strawberry smoothie.jpg" class="card-img-top" alt="STRAWBERRY SMOOTHIE">
-                <h5 class="card-title">STRAWBERRY SMOOTHIE</h5>
-                <p class="card-text">$ 3.50</p>
-                <form method="post">
-                    <input type="hidden" name="item_id" value="21">
-                    <input type="hidden" name="quantity" value="1">
-                    <button type="submit" name="add_to_cart" class="btn btn-green px-4">Add to cart</button>
-                </form>
-               </div>
-             </div>
-         </div> <div class="col-md-4 mb-2">
-             <div class="card">
-               <div class="card-body">
-                <img src="img/menu-img/watermelon smoothie.jpg" class="card-img-top" alt="WATERMELON SMOOTHIE">
-                <h5 class="card-title">WATERMELON SMOOTHIE</h5>
-                <p class="card-text">$ 3.50</p>
-                <form method="post">
-                    <input type="hidden" name="item_id" value="23">
+                    <input type="hidden" name="item_id" value="9">
                     <input type="hidden" name="quantity" value="1">
                     <button type="submit" name="add_to_cart" class="btn btn-green px-4">Add to cart</button>
                 </form>
@@ -178,11 +139,24 @@
          </div> <div class="col-md-4 mb-2">
              <div class="card">
                <div class="card-body">
-                <img src="img/menu-img/margherita pizza.jpg" class="card-img-top" alt="MARGHERITA PIZZA">
-                <h5 class="card-title">MARGHERITA PIZZA</h5>
-                <p class="card-text">$ 5.00</p>
+                <img src="img/menu-img/hawaiin pizza.webp" class="card-img-top" alt="HAWAIIN PIZZA">
+                <h5 class="card-title">HAWAIIN PIZZA</h5>
+                <p class="card-text">$ 5.75</p>
                 <form method="post">
-                    <input type="hidden" name="item_id" value="9">
+                    <input type="hidden" name="item_id" value="11">
+                    <input type="hidden" name="quantity" value="1">
+                    <button type="submit" name="add_to_cart" class="btn btn-green px-4">Add to cart</button>
+                </form>
+               </div>
+             </div>
+         </div> <div class="col-md-4 mb-2">
+             <div class="card">
+               <div class="card-body">
+                <img src="img/menu-img/veggie pizza.jpeg" class="card-img-top" alt="VEGGIE PIZZA">
+                <h5 class="card-title">VEGGIE PIZZA</h5>
+                <p class="card-text">$ 4.70</p>
+                <form method="post">
+                    <input type="hidden" name="item_id" value="12">
                     <input type="hidden" name="quantity" value="1">
                     <button type="submit" name="add_to_cart" class="btn btn-green px-4">Add to cart</button>
                 </form>
@@ -314,7 +288,6 @@
   
   <script src="https://cdn.jsdelivr.net/npm/emoji-mart@latest/dist/browser.js"></script>
   <script src="js/chatbot.js"></script>
-<script src="js/auth_navbar.js"></script>
 
    <!--last child-->
    <div class="bg-body-tertiary p-3">
@@ -342,6 +315,6 @@
    </div>
 
 </div>
-
+ <script src="js/auth_navbar.js"></script>
 </body>
 </html>
