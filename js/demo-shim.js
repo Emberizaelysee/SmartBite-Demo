@@ -502,6 +502,26 @@
     }
   }
 
+  // Quick-login buttons added to signin.html so the admin dashboard (and
+  // the regular customer profile) are reachable without knowing the
+  // underlying seed credentials.
+  function wireDemoLoginButtons() {
+    var userBtn = document.getElementById("demoUserBtn");
+    var adminBtn = document.getElementById("demoAdminBtn");
+    if (userBtn) {
+      userBtn.addEventListener("click", function () {
+        Store.signIn("user@user.com", false);
+        window.location.href = "index.html";
+      });
+    }
+    if (adminBtn) {
+      adminBtn.addEventListener("click", function () {
+        Store.signIn("admin@smartbite.com", true);
+        window.location.href = "dashboard.html";
+      });
+    }
+  }
+
   // ---------------------------------------------------------------------
   // dynamic rendering: cart badge, welcome bar, menu grid, cart table
   // ---------------------------------------------------------------------
@@ -658,6 +678,7 @@
     renderReviewLoginPrompt();
     neutralizeGoogleButton();
     handleQueryMessages();
+    wireDemoLoginButtons();
 
     if (page === "index.html") {
       var params = new URLSearchParams(window.location.search);

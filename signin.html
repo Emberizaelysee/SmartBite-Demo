@@ -39,6 +39,15 @@
             <button type="button" class="tab-btn" onclick="location.href='signup.html'">Create Account</button>
         </div>
 
+        <!-- DEMO ACCOUNTS (added for this demo only — not part of the real app) -->
+        <div class="alert alert-secondary small mb-3" style="font-size:0.85rem;">
+            <strong>Demo accounts</strong> — any password works.
+            <div class="d-flex gap-2 mt-2 flex-wrap">
+                <button type="button" class="btn btn-sm btn-outline-secondary" id="demoUserBtn">Continue as user@user.com</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary" id="demoAdminBtn">Continue as admin@smartbite.com</button>
+            </div>
+        </div>
+
 <form action="../Backend/api/auth/signin.php" id="signinForm" method="POST">
     <input type="hidden" name="redirect" id="redirectInput" value="index.html">
             <!-- EMAIL -->
